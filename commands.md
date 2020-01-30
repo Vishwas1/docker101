@@ -27,4 +27,16 @@ docker exec hskeycloak /opt/jboss/keycloak/bin/add-user-keycloak.sh -u admin -p 
 
 
 docker build -t <imagename:tagname> <location of dockerfile> ## ex: docker build --tag demoimg:1.0 Dockerfile
+
+
+##
+# Volumes
+##
+docker volume create <volume_name>
+docker volume ls
+docker volume inspect <volume_name>
+docker volume rm <volume_name>
+docker volume prune 
+docker run --name hskc1 -d -v dockervol1:/opt/jboss/keycloak -p 8080:8080 91f818105776
+
 ```
