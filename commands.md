@@ -24,4 +24,7 @@ docker attach <container_id | container_name>
 docker logs --follow <container_id | container_name>
 docker exec -it <container_id | container_name> bash ## run a command in a running container
 docker exec hskeycloak /opt/jboss/keycloak/bin/add-user-keycloak.sh -u admin -p admin
+
+
+docker build -t <imagename:tagname> <location of dockerfile> ## ex: docker build --tag demoimg:1.0 Dockerfile
 ```

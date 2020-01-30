@@ -52,3 +52,10 @@ Analogy: Apartments	  |	Analogy: Houses
 ```
 
 
+
+
+## Docker File 
+
+A text file with instructions to build docker images.
+
+![docker-file.png](assets/docker-file.png)
