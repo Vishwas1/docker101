@@ -1,5 +1,3 @@
-docker images --help
-docker pull jboss/keycloak
 
 
 Images
@@ -23,22 +21,10 @@ Type2 : Runs as an app on the host OS. Ex. Virtual Box / VMWare
 
 ## Docker container are not VM
 
-```
-                  Virtual Machines	                       |          Docker   
-+-----------------------------------------------------------+----------------------------------------------------------
-APP #1     | APP #1    | APP #1    | APP #1    	           |
-Bins/libs  | Bins/libs | Bins/libs | Bins/libs             | APP #1       | APP #1         | APP #1        | APP #1    	           
-Guest OS   | Guest OS  | Guest OS  | Guest OS              | Bins/libs    | Bins/libs      | Bins/libs     | Bins/libs
-+-----------------------------------------------------------|----------------------------------------------------------	
-                  Hypervisor				                        Docker Daemon
----------------------------------------------------------- |----------------------------------------------------------	
-                  Host OS				                      	        Host OS
----------------------------------------------------------- |----------------------------------------------------------	
-                  Hardware				                          Hardware
----------------------------------------------------------- | ---------------------------------------------------------
+- A container runs natively on Linux and shares the kernel of the host machine with other containers.
+- By contrast, a virtual machine (VM) runs a full-blown “guest” operating system with virtual access to host resources through a hypervisor.
 
-```
-
+![doc](assets/containerVsVm.png)
 
 ```
 
@@ -51,4 +37,29 @@ Analogy: Apartments	  |	Analogy: Houses
 
 ```
 
+## Orchestration
+
+Now that you have containers, you might want to scale it. As we scale our applications up, we’ll want some tooling to help automate the maintenance of those applications, able to replace failed containers automatically and manage the rollout of updates and reconfigurations of those containers during their lifecycle.
+
+Tools to manage, scale, and maintain containerized applications are called orchestrators, and the most common examples of these are [Kubernetes](https://kubernetes.io/) and [Docker Swarm](https://docs.docker.com/engine/swarm/). 
+
+## Docker file
+
+A Dockerfile is a text file that Docker reads in from top to bottom. It contains a bunch of instructions which informs Docker HOW the Docker image should get built.
+
+You can relate it to cooking. In cooking you have recipes. A recipe lets you know all of the steps you must take in order to produce whatever you’re trying to cook.
+
+
+## Docker Image
+
+- An image includes everything needed to run an application -- the code or binary, runtimes, dependencies, and any other filesystem objects required.
+- Essentially, images are templates used to create containers.
+
+## Docker Conatiner
+
+- Its running instance of image. 
+- Fundamentally, a container is nothing but a **running process**, with some added encapsulation features applied to it in order to keep it isolated from the host and from other containers.
+- One of the most important aspects of container isolation is that each container interacts with its own, private filesystem; 
+- A container runs natively on Linux and shares the kernel of the host machine with other containers.
+- containers effectively guarantee that those applications will run the same way anywhere,
 
