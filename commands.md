@@ -5,6 +5,7 @@ sudo snap install docker
 sudo chmod 666 /var/run/docker.sock 
 
 docker images 
+docker rmi images <docker_image_id> # remove an images
 docker pull jboss/keycloak
 docker ps -a
 
