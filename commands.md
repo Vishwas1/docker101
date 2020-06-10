@@ -5,6 +5,10 @@ sudo snap install docker
 sudo chmod 666 /var/run/docker.sock 
 sudo snap start docker
 
+// to uninstall docker 
+sudo snap remove docker
+sudo find / -name "*docker*" -exec `rm -rf` {} +
+
 docker images 
 docker rmi images <docker_image_id> # remove an images
 docker pull jboss/keycloak
