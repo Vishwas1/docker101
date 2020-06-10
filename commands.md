@@ -1,14 +1,48 @@
 https://devhints.io/docker
 
+Installation
+
 ```sh
-sudo snap install docker
-sudo chmod 666 /var/run/docker.sock 
-sudo snap start docker
+// Ref: https://docs.docker.com/engine/install/ubuntu/
+sudo apt-get update
 
-// to uninstall docker 
-sudo snap remove docker
-sudo find / -name "*docker*" -exec `rm -rf` {} +
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+   
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+Post installation steps
+
+```sh
+// 
+// Post installation steps
+// Ref: https://docs.docker.com/engine/install/linux-postinstall/
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
+
+```
+
+Uninstallation
+
+```sh
+sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+```sh
 docker images 
 docker rmi images <docker_image_id> # remove an images
 docker pull jboss/keycloak
