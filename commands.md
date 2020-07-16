@@ -1,6 +1,6 @@
 https://devhints.io/docker
 
-Installation
+## Installation
 
 ```sh
 // Ref: https://docs.docker.com/engine/install/ubuntu/
@@ -24,23 +24,24 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-Post installation steps
+## Post installation steps
 
 ```sh
 // 
 // Post installation steps
 // Ref: https://docs.docker.com/engine/install/linux-postinstall/
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker 
+sudo groupadd docker ## Add the docker group if it doesn't already exist:
+sudo gpasswd -a $USER docker ## Add the connected user "$USER" to the docker group
+newgrp docker   ## To activate the changes to groups.
 
 ```
 
-Uninstallation
+## Uninstallation
 
 ```sh
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
+## Other commands
 
 ```sh
 docker images 
