@@ -101,7 +101,7 @@ https://devhints.io/dockerfile
 
 https://devhints.io/docker-compose
 
-Install
+### Install
 
 ```sh
 docker-compose -v
