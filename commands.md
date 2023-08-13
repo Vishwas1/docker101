@@ -71,11 +71,9 @@ docker exec docker-compose_keycloak_1 /opt/jboss/keycloak/bin/add-user-keycloak.
 
 docker build -t <imagename:tagname> <location of dockerfile> ## ex: docker build --tag demoimg:1.0 Dockerfile
 
-
-
-
 docker port <container_id | container_name>
 
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
 
 ##
 # Volumes
